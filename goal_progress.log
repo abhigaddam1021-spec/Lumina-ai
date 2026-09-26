@@ -1,0 +1,21 @@
+[14:14:04] ============================================================
+[14:14:04]   AUTONOMOUS TRAINING STARTED
+[14:14:04]   Goals: acc>95% | hall<1% | overfit<0.5% | IQ>=120
+[14:14:04] ============================================================
+[14:14:04] 
+--- Iteration 1 | mode=quick | hidden=32 | lr=0.005 | epochs=150 ---
+[14:15:12]   RESULT → IQ=115 | acc=90.83% | hall=0.417% | overfit=0.466%
+[14:15:12]   *** NEW BEST IQ: 115 ***  (saved to best_config.json)
+[14:15:12] 
+--- Iteration 2 | mode=quick | hidden=48 | lr=0.005 | epochs=150 ---
+[14:17:33]   RESULT → IQ=124 | acc=99.58% | hall=0.139% | overfit=0.069%
+[14:17:33]   *** NEW BEST IQ: 124 ***  (saved to best_config.json)
+[14:17:33] 
+============================================================
+[14:17:33]   ALL GOALS MET!
+[14:17:33]   Final IQ         : 124
+[14:17:33]   Final Accuracy   : 99.58%  (goal >95%)
+[14:17:33]   Hallucination    : 0.139% (goal <1%)
+[14:17:33]   Copy-paste/Ofit  : 0.069% (goal <0.5%)
+[14:17:33]   Best Config      : {'mode': 'quick', 'hidden_size': 48, 'lr': 0.005, 'epochs': 150, 'avg_iq': 124, 'avg_val_acc': 0.9958333333333333, 'avg_hall': 0.001388888888888889, 'avg_overfit': 0.000694444444444442}
+[14:17:33] ============================================================
