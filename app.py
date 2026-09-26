@@ -234,6 +234,10 @@ with tab_research:
                     out_sz = len(class_names)
                     task_r = "binary" if out_sz == 2 else "multiclass"
 
+                    # Convert one-hot binary labels [N, 2] to single column [N, 1]
+                    if task_r == "binary" and y_r.shape[1] == 2:
+                        y_r = y_r[:, 1:2]
+
                     net_r = NeuralNetwork(
                         input_size=in_sz, hidden_size=hidden_r,
                         output_size=out_sz if out_sz > 2 else 1,
