@@ -1,4 +1,4 @@
-﻿import ast
+import ast
 import operator
 import re
 import time
@@ -135,24 +135,24 @@ def generate_chat_response(prompt: str, large_context: str = "", tone: str = "Pr
     intent = get_intent(prompt)
 
     # 1. Base generation
-    if large_context:
-        answer = f"**[Large Text Analysis]**\n\n{extract_best_sentences(prompt, large_context, top_n=5)}"
+    if intent == "chat":
+        answer = "Hello! I am Lumina. How can I help you today?"
     elif intent == "math":
         result = safe_math_eval(prompt)
         if result is not None:
-            answer = f"**[Mathematical Reasoning]**\nThe exact result is: **{result}**"
+            answer = f"The answer is {result}."
         else:
-            answer = "I could not compute that exact math equation."
+            answer = "I'm not quite sure how to calculate that."
     elif intent == "eq":
         p = prompt.lower()
         if "sad" in p or "depress" in p or "down" in p: answer = EQ_RESPONSES["sad"]
         elif "stress" in p or "anxious" in p: answer = EQ_RESPONSES["stress"]
         elif "angr" in p or "mad" in p or "frustrat" in p: answer = EQ_RESPONSES["angry"]
         else: answer = EQ_RESPONSES["advice"]
+    elif large_context:
+        answer = extract_best_sentences(prompt, large_context, top_n=5)
     elif intent == "code":
-        answer = "**[Coding Engine]**\nWhile my pure-NumPy architecture limits my ability to generatively write 1000+ lines of code from scratch, I can analyze algorithms and search programming databases. Please paste the code you'd like me to analyze in the Large Text box, or ask for a specific algorithm structure!"
-    elif intent == "chat":
-        answer = "Hello! I am Lumina. I have been upgraded to IQ 140 and EQ 9, and my bias filters are fully active. How can I assist you today?"
+        answer = "I can definitely help with code! Just paste the snippet you want me to look at into the Context Window on the left sidebar, and ask me your question."
     else:
         # Append 'objective facts' to force unbiased web search results
         wiki_text = wikipedia_summary(prompt)
@@ -163,9 +163,9 @@ def generate_chat_response(prompt: str, large_context: str = "", tone: str = "Pr
         for r in web_results: context += r.get("body", "") + " "
 
         if not context.strip():
-            answer = "I found zero definitive sources on the live web for this query.\n\n_**Verify info, not enough data collected**_"
+            answer = "I couldn't find enough reliable information on that to give you a solid answer.\n\n_**Verify info, not enough data collected**_"
         else:
-            answer = f"**[Web Research Output (Unbiased & High Confidence)]**\n\n{extract_best_sentences(prompt, context, top_n=4)}"
+            answer = extract_best_sentences(prompt, context, top_n=4)
 
     # 2. Apply Personalisation
     if tone != "Professional":
