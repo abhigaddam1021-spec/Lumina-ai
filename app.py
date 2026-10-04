@@ -63,19 +63,37 @@ st.markdown(f'''
         color: #1a1a1a !important;
     }}
     
-    /* Fix Chat Input box contrast (bottom text area) */
-    [data-testid="stChatInput"] {{
+    /* Fix Chat Input box contrast */
+    [data-testid="stChatInput"], 
+    [data-testid="stChatInput"] > div {{
         background-color: white !important;
-        border-radius: 10px;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 12px !important;
     }}
     [data-testid="stChatInput"] textarea {{
         color: #1a1a1a !important;
-        background-color: white !important;
+        background-color: transparent !important;
+    }}
+    [data-testid="stChatInput"] textarea::placeholder {{
+        color: #94a3b8 !important;
+    }}
+    [data-testid="stChatInput"] button, 
+    [data-testid="stChatInput"] svg {{
+        color: #475569 !important;
+        fill: #475569 !important;
+    }}
+    [data-testid="stChatInput"] button:hover {{
+        background-color: #f1f5f9 !important;
     }}
     
     /* Fix Streamlit bottom block background */
-    [data-testid="stBottom"], [data-testid="stBottomBlockContainer"] {{
+    [data-testid="stBottom"], 
+    [data-testid="stBottom"] > *,
+    [data-testid="stBottom"] > * > *,
+    [data-testid="stBottomBlockContainer"], 
+    [data-testid="stBottomBlockContainer"] > * {{
         background-color: transparent !important;
+        background: transparent !important;
     }}
     
     /* Fix sidebar Context Window textarea */
