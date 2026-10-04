@@ -1,5 +1,5 @@
-"""
-research/searcher.py — Live Internet Access Module
+﻿"""
+research/searcher.py â€” Live Internet Access Module
 ====================================================
 
 This module gives the AI real internet access by:
@@ -74,7 +74,7 @@ def search(query: str, max_results: int = 5) -> list[dict]:
                 })
             return normalized
         except Exception as e:
-            print(f"[SEARCH] DDG error: {e}")
+            # print(f"[SEARCH] DDG error: {e}")
             return []
     else:
         # Fallback: DuckDuckGo Instant Answer API (JSON, no key needed)
@@ -101,7 +101,7 @@ def _ddg_instant(query: str, max_results: int) -> list[dict]:
                 })
         return results
     except Exception as e:
-        print(f"[SEARCH] Instant API error: {e}")
+        # print(f"[SEARCH] Instant API error: {e}")
         return []
 
 
@@ -113,7 +113,7 @@ def wikipedia_summary(topic: str, sentences: int = 5) -> Optional[str]:
     """
     Fetch a plain-text summary of a Wikipedia article.
 
-    Uses Wikipedia's public REST API — no key needed.
+    Uses Wikipedia's public REST API â€” no key needed.
 
     Parameters
     ----------
@@ -135,7 +135,7 @@ def wikipedia_summary(topic: str, sentences: int = 5) -> Optional[str]:
             data = json.loads(resp.read().decode())
         return data.get("extract", None)
     except Exception as e:
-        print(f"[WIKI] Error fetching '{topic}': {e}")
+        # print(f"[WIKI] Error fetching '{topic}': {e}")
         return None
 
 
@@ -215,3 +215,4 @@ def research(query: str, max_results: int = 3, fetch_full: bool = False) -> list
                 r["full_text"] = None
 
     return results
+

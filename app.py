@@ -3,7 +3,7 @@ import time
 from research.chat_engine import generate_chat_response
 
 # -- UI Configuration --
-st.set_page_config(page_title="Lumina AI", page_icon="✨", layout="centered")
+st.set_page_config(page_title="Lumina AI", page_icon="âœ¨", layout="centered")
 
 # Default values for personalization
 if "font_style" not in st.session_state: st.session_state.font_style = "System Default"
@@ -122,24 +122,24 @@ st.markdown(f'''
 
 # -- Sidebar --
 with st.sidebar:
-    st.title("✨ Lumina AI")
+    st.title("âœ¨ Lumina AI")
     st.markdown("**Version:** Alpha")
     st.markdown("Your custom-built, pure-Python AI assistant.")
     
     st.markdown("---")
     
-    with st.expander("⚙️ System Specifics & Updates", expanded=False):
+    with st.expander("âš™ï¸ System Specifics & Updates", expanded=False):
         st.markdown("**Simple System Specifics**")
-        st.caption("• **IQ Core:** 140\n• **EQ Core:** 9\n• **Accuracy:** >98%\n• **Hallucinations:** <0.5%")
+        st.caption("â€¢ **IQ Core:** 140\nâ€¢ **EQ Core:** 9\nâ€¢ **Accuracy:** >98%\nâ€¢ **Hallucinations:** <0.5%")
         
         st.markdown("""
 <details style="margin-bottom: 10px;">
 <summary style="cursor: pointer; font-weight: bold; padding: 5px 0;">Advanced System Specifics</summary>
 <div style="padding-left: 15px; font-size: 0.9em; color: #1a1a1a;">
-• <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">TOPOLOGY</span> : 150-Layer Deep Feed-Forward<br>
-• <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">CTX_WINDOW</span> : 2048 Tokens (O(N) Complexity)<br>
-• <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">VEC_ENGINE</span> : TF-IDF with L2 Cosine Sim Matrix<br>
-• <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">OPTIMIZATION</span> : Active Continuous Loss Minimization
+â€¢ <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">TOPOLOGY</span> : 150-Layer Deep Feed-Forward<br>
+â€¢ <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">CTX_WINDOW</span> : 2048 Tokens (O(N) Complexity)<br>
+â€¢ <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">VEC_ENGINE</span> : TF-IDF with L2 Cosine Sim Matrix<br>
+â€¢ <span style="font-family: monospace; font-size: 0.85em; background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">OPTIMIZATION</span> : Active Continuous Loss Minimization
 </div>
 </details>
 
@@ -149,31 +149,31 @@ with st.sidebar:
 <details style="margin-top: 5px;">
 <summary style="cursor: pointer; font-size: 0.9em; font-weight: 600;">Version: Alpha (Sep 27, 2026)</summary>
 <div style="padding-left: 15px; font-size: 0.85em;">
-• Added Anti-Bias / Objective Data Filters<br>
-• Added 20 Personalization Tones<br>
-• Added 20 Language Translation Support<br>
-• Migrated to Single-Mode Interface<br>
-• UI Overhaul & Nested Tabs
+â€¢ Added Anti-Bias / Objective Data Filters<br>
+â€¢ Added 20 Personalization Tones<br>
+â€¢ Added 20 Language Translation Support<br>
+â€¢ Migrated to Single-Mode Interface<br>
+â€¢ UI Overhaul & Nested Tabs
 </div>
 </details>
 
 <details style="margin-top: 5px;">
 <summary style="cursor: pointer; font-size: 0.9em; font-weight: 600;">Version: Beta (Sep 26, 2026)</summary>
 <div style="padding-left: 15px; font-size: 0.85em;">
-• Built core 150-layer neural network from scratch<br>
-• Implemented TF-IDF Live Web Research<br>
-• Established initial Math & EQ parsing routines
+â€¢ Built core 150-layer neural network from scratch<br>
+â€¢ Implemented TF-IDF Live Web Research<br>
+â€¢ Established initial Math & EQ parsing routines
 </div>
 </details>
 
 <div style="margin-top: 15px; font-size: 0.85em; font-weight: 700; font-style: italic;">
-🚀 Gamma and V1 releasing soon...
+ðŸš€ Gamma and V1 releasing soon...
 </div>
 </div>
 </details>
 """, unsafe_allow_html=True)
         
-    with st.expander("🎨 Personalisation", expanded=False):
+    with st.expander("ðŸŽ¨ Personalisation", expanded=False):
         tones = [
             "Professional", "Empathetic", "Humorous", "Sarcastic", "Poetic", 
             "Academic", "Casual", "Enthusiastic", "Pirate", "Robot", 
@@ -192,7 +192,7 @@ with st.sidebar:
         st.session_state.language = st.selectbox("Language", langs, index=langs.index(st.session_state.language))
         st.session_state.font_style = st.selectbox("Font Style", fonts, index=fonts.index(st.session_state.font_style))
 
-    if st.button("➕ New Chat", use_container_width=True):
+    if st.button("âž• New Chat", use_container_width=True):
         st.session_state.messages = []
         st.rerun()
 
@@ -202,7 +202,7 @@ with st.sidebar:
     large_text = st.text_area("Context Window", height=150, placeholder="Paste huge text blocks here...")
     
     st.markdown("---")
-    st.caption("⚠️ **Training Status:** Continuous Deep-Layer Training is currently ACTIVE in the background. Do not close unless requested.")
+    st.caption("âš ï¸ **Training Status:** Continuous Deep-Layer Training is currently ACTIVE in the background. Do not close unless requested.")
 
 # -- Main Chat Interface --
 st.title("Lumina")
@@ -227,17 +227,25 @@ if prompt := st.chat_input("Message Lumina..."):
         message_placeholder.markdown("*(Processing...)*")
 
         try:
+            # Pass the full chat history (excluding the prompt we just appended)
+            chat_history = st.session_state.messages[:-1]
+                        
             full_response = generate_chat_response(
                 prompt, 
                 large_context=large_text,
                 tone=st.session_state.tone,
-                language=st.session_state.language
+                language=st.session_state.language,
+                chat_history=chat_history
             )
+
+            if full_response == "SYSTEM_COMMAND_CLEAR_MEMORY":
+                st.session_state.messages = []
+                full_response = "Memory wiped. I have cleared my context buffer for this session! Starting fresh."
 
             streamed_text = ""
             for word in full_response.split(" "):
                 streamed_text += word + " "
-                message_placeholder.markdown(streamed_text + "▌")
+                message_placeholder.markdown(streamed_text + "|")
                 time.sleep(0.04) 
             
             message_placeholder.markdown(streamed_text)
@@ -246,4 +254,10 @@ if prompt := st.chat_input("Message Lumina..."):
             full_response = f"Oops! System Error: {e}"
             message_placeholder.markdown(full_response)
 
-    st.session_state.messages.append({"role": "assistant", "content": full_response})
+    if full_response != "Memory wiped. I have cleared my context buffer for this session! Starting fresh.":
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
+    else:
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
+        st.rerun()
+
+
