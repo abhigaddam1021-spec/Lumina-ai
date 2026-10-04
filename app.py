@@ -1,9 +1,12 @@
-import streamlit as st
+﻿import streamlit as st
 import time
+import importlib
+import research.chat_engine
+importlib.reload(research.chat_engine)
 from research.chat_engine import generate_chat_response
 
 # -- UI Configuration --
-st.set_page_config(page_title="Lumina AI", page_icon="âœ¨", layout="centered")
+st.set_page_config(page_title="Lumina AI", page_icon="✨", layout="centered")
 
 # Default values for personalization
 if "font_style" not in st.session_state: st.session_state.font_style = "System Default"
@@ -122,13 +125,13 @@ st.markdown(f'''
 
 # -- Sidebar --
 with st.sidebar:
-    st.title("âœ¨ Lumina AI")
+    st.title("✨ Lumina AI")
     st.markdown("**Version:** Alpha")
     st.markdown("Your custom-built, pure-Python AI assistant.")
     
     st.markdown("---")
     
-    with st.expander("âš™ï¸ System Specifics & Updates", expanded=False):
+    with st.expander("⚙️ System Specifics & Updates", expanded=False):
         st.markdown("**Simple System Specifics**")
         st.caption("â€¢ **IQ Core:** 140\nâ€¢ **EQ Core:** 9\nâ€¢ **Accuracy:** >98%\nâ€¢ **Hallucinations:** <0.5%")
         
@@ -173,7 +176,7 @@ with st.sidebar:
 </details>
 """, unsafe_allow_html=True)
         
-    with st.expander("ðŸŽ¨ Personalisation", expanded=False):
+    with st.expander("🎨 Personalisation", expanded=False):
         tones = [
             "Professional", "Empathetic", "Humorous", "Sarcastic", "Poetic", 
             "Academic", "Casual", "Enthusiastic", "Pirate", "Robot", 
@@ -209,7 +212,7 @@ st.title("Lumina")
 
 if "messages" not in st.session_state or not st.session_state.messages:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hello! I am Lumina. How can I assist you today?"}
+        {"role": "assistant", "content": "Hello! I am Lumina. How can I assist you today•"}
     ]
 
 for msg in st.session_state.messages:
@@ -259,5 +262,11 @@ if prompt := st.chat_input("Message Lumina..."):
     else:
         st.session_state.messages.append({"role": "assistant", "content": full_response})
         st.rerun()
+
+
+
+
+
+
 
 
